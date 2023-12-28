@@ -1,0 +1,37 @@
+.custom-audio-player {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(14, 2, 21);
+}
+.display-pic {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.duration-input {
+  width: 100%;
+  filter: hue-rotate(25deg);
+}
+.duration-flex {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.play-pause {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.volume-input {
+  width: 50%;
+  filter: hue-rotate(25deg);
+}

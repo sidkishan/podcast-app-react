@@ -1,0 +1,8 @@
+.episode-heading {
+  text-align: left !important;
+  margin-bottom: 5px !important;
+}
+.episode-details p {
+  padding: 0 05px;
+  color: var(--purple-grey);
+}
