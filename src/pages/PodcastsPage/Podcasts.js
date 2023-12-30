@@ -60,8 +60,7 @@ const Podcasts = () => {
             ))}
           </div>
         ) : (
-          // <p>no podcast found</p>
-          <Loader />
+          <p>no podcast found</p>
         )}
       </div>
     </div>
