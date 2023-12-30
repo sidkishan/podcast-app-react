@@ -7,6 +7,7 @@ import LoginForm from "../Login/index.js";
 
 const Signup = () => {
   const [flag, setFlag] = useState(false);
+
   return (
     <div>
       <Header />

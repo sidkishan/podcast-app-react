@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Input from "../../components/CommonComponents/Input/Input";
 import Button from "../../components/CommonComponents/button/Button";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useDispatch } from "react-redux";
@@ -56,6 +59,26 @@ const LoginForm = () => {
       }
     }
   }
+  //logic for resetting the password.
+  const handlePasswordReset = () => {
+    if (!email) {
+      toast.error("Please enter your registered email to reset your password!");
+    } else {
+      //password reset logic
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          // Password reset email sent!
+          toast.success(
+            "password reset link has been sent to your email provided!"
+          );
+        })
+        .catch((error) => {
+          //const errorCode = error.code;
+          const errorMessage = error.message;
+          toast.error(errorMessage);
+        });
+    }
+  };
   return (
     <>
       <Input
@@ -72,7 +95,12 @@ const LoginForm = () => {
         placeholder={"Password"}
         required={true}
       />
-
+      <p
+        style={{ marginLeft: "65%", color: "dodgerblue", cursor: "pointer" }}
+        onClick={handlePasswordReset}
+      >
+        forgot password?
+      </p>
       <Button
         text={loading ? "loading..." : "Login Now"}
         onClick={handleLogin}
